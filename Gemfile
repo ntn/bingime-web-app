@@ -44,11 +44,12 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-group :production do		
-  # Use the PostgreSQL gem for Heroku 		
+group :production do  
+  # Use the PostgreSQL gem for Heroku   
   gem 'pg', '0.18.4'
-  
-ruby '2.3.0'
+end
+
+ruby '2.3.1'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

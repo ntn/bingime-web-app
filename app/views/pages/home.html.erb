@@ -1,15 +1,13 @@
-<HTML>
 <h1>Bingime</h1>
-<button id="bad">bad</button>
 	
 <!-- <div id="api" style="visibility: hidden">	
 	
 	</div> -->
-
+	
 	<a href="#" id="show_whatever">baddiys</a>
-	<div id="whatever" class="">
+	<div id="whatever" class="hidden">
 		<% 
-		id = "1"
+		id = "12268"
 		url = "https://kitsu.io/api/edge/anime/#{id}/"
 		response = open(url)
 		body = response.read()
@@ -17,9 +15,11 @@
 		new_hash = JSON.parse(body)
 
 		binge_time = new_hash["data"]["attributes"]["episodeCount"] * new_hash["data"]["attributes"]["episodeLength"]
-
-		return new_hash["data"]["attributes"]["titles"]["en"].to_s + ". Binge time: " + binge_time.to_s + " minutes"
+		
 		%>
+		<%= new_hash["data"]["attributes"]["titles"]["en"].to_s + ". Binge time: " + binge_time.to_s + " minutes" %>
 	</div>
-</HTML>
+	
+
+  
 

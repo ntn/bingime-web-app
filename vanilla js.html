@@ -16,15 +16,10 @@
             <input type="text" id="search" class="search" required>
           </p>
             <button class="submit">Submit search</button>
-          <p id="demo">
-          </p>
-          </p>
         </form>
       </div>
-
-
-        <section>
-        </section>
+      <ul id="aList">
+      </ul>
       </div>
 
     </div>
@@ -41,6 +36,7 @@
       var searchTerm = document.querySelector('.search');
       var searchForm = document.querySelector('form');
       var submitBtn = document.querySelector('.submit');
+      var aList = document.querySelector('#aList')
 
 
       var section = document.querySelector('section');
@@ -63,14 +59,22 @@
                 console.log('Status:', this.status);
                 console.log('Headers:', this.getAllResponseHeaders());
                 console.log('Body:', this.response);
-                // var myJSON = JSON.stringify(.);
-                var results = this.response["result"]
+                  
+                var results = this.response["result"];
                 var titles = document.createElement('p');
                 for (var i = 0; i < results.length; i++){
-                	// document.add(results[i]["title"] + "\n");
-                	titles.appendChild(document.createTextNode(results[i]["title"] + "\n"));
-                	document.getElementById("demo").appendChild(titles);
-                	// document.getElementById("demo").appendChild(document.createTextNode("<br>" + results[i]["title"] + "</br>"));
+                    var aListItem = document.createElement('li');
+                    var page = document.createElement('a');
+                    var pic = document.createElement('img');
+                    var base = results[i];
+                    
+                    page.textContent = base["title"];
+                    page.href = base["url"];
+                    pic.src = base["image_url"];
+                    
+                    aList.appendChild(aListItem);
+                    aListItem.appendChild(pic);
+                    aListItem.appendChild(page);
                 }
               }
             };
